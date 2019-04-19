@@ -1,0 +1,30 @@
+version: '2'
+volumes:
+    sense-data:
+services:
+  influxdb:
+    restart: always
+    build: ./influxdb
+    volumes:
+      - 'sense-data:/data'
+  grafana:
+    restart: always
+    build: ./grafana
+    ports:
+      - "80:3000"
+    volumes:
+      - 'sense-data:/data'
+    depends_on:
+      - influxdb
+  mosquitto:
+    restart: always
+    build: ./mosquitto
+    ports:
+      - "1883:1883"
+    
+#  sensor:
+#    build: ./sensor
+#    privileged: true
+#    restart: always
+#    depends_on:
+#     - influxdb
