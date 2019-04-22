@@ -7,6 +7,8 @@ services:
     build: ./influxdb
     volumes:
       - 'sense-data:/data'
+    ports:
+      - "8086:8086"
   grafana:
     restart: always
     build: ./grafana
@@ -21,6 +23,12 @@ services:
     build: ./mosquitto
     ports:
       - "1883:1883"
+  bridge:
+    restart: always
+    build: ./bridge
+    depends_on:
+     - influxdb
+     - mosquitto
     
 #  sensor:
 #    build: ./sensor
