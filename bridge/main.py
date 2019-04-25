@@ -18,8 +18,8 @@ INFLUXDB_DATABASE = 'balena-sense'
 MQTT_ADDRESS = 'mosquitto'
 MQTT_USER = 'mqttuser'
 MQTT_PASSWORD = 'mqttpassword'
-MQTT_TOPIC = 'home/+/+'  # [bme280|mijia]/[temperature|humidity|battery|status]
-MQTT_REGEX = 'home/([^/]+)/([^/]+)'
+MQTT_TOPIC = '+/power'
+MQTT_REGEX = '([^/]+)/([^/]+)'
 MQTT_CLIENT_ID = 'MQTTInfluxDBBridge'
 
 influxdb_client = InfluxDBClient(INFLUXDB_ADDRESS, 8086, INFLUXDB_USER, INFLUXDB_PASSWORD, None)
@@ -70,8 +70,8 @@ def _send_sensor_data_to_influxdb(sensor_data):
         }
     ]
     print('write data: ' + str(json_body))
-    influxdb_client.write_points(json_body)
-
+    result = influxdb_client.write_points(json_body)
+    print('result: ' + str(result));
 
 def _init_influxdb_database():
     databases = influxdb_client.get_list_database()
