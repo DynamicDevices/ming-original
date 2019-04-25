@@ -2,6 +2,13 @@ version: '2'
 volumes:
     sense-data:
 services:
+  nodered:
+    restart: always
+    build: ./nodered
+    volumes:
+      - 'sense-data:/data'
+    ports:
+      - "1880:1880"
   influxdb:
     restart: always
     build: ./influxdb

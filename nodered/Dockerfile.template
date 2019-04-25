@@ -1,0 +1,9 @@
+FROM balenalib/%%BALENA_MACHINE_NAME%%-alpine-node
+
+RUN apk --no-cache add nodejs nodejs-npm
+
+RUN npm install -g node-red
+
+ENV PATH /usr/sbin:$PATH
+
+CMD ["/usr/local/bin/node-red", "--userDir", "/data"]
