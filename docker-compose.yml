@@ -1,12 +1,14 @@
 version: '2'
 volumes:
     sense-data:
+    nodered-data:
+    grafana-data:
 services:
   nodered:
     restart: always
     build: ./nodered
     volumes:
-      - 'sense-data:/data'
+      - 'nodered-data:/data'
     ports:
       - "1880:1880"
   influxdb:
@@ -22,7 +24,7 @@ services:
     ports:
       - "80:3000"
     volumes:
-      - 'sense-data:/data'
+      - 'grafana-data:/data'
     depends_on:
       - influxdb
   mosquitto:
