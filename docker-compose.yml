@@ -32,16 +32,9 @@ services:
     build: ./mosquitto
     ports:
       - "1883:1883"
-  bridge:
-    restart: always
-    build: ./bridge
-    depends_on:
-     - influxdb
-     - mosquitto
-    
-#  sensor:
-#    build: ./sensor
-#    privileged: true
+#  bridge:
 #    restart: always
+#    build: ./bridge
 #    depends_on:
 #     - influxdb
+#     - mosquitto
