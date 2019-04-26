@@ -1,8 +1,10 @@
 FROM balenalib/%%BALENA_MACHINE_NAME%%-alpine-node
 
-RUN apk --no-cache add nodejs nodejs-npm
+RUN apk --no-cache add nodejs nodejs-npm git
 
 RUN npm install -g node-red
+RUN git clone https://github.com/mblackstock/node-red-contrib-influxdb.git
+RUN cd node-red-contrib-influxdb && npm install -g
 
 ENV PATH /usr/sbin:$PATH
 
