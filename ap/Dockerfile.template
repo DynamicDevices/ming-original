@@ -1,0 +1,18 @@
+FROM balenalib/%%BALENA_MACHINE_NAME%%
+
+ENV INITSYSTEM on
+
+RUN apt-get update && apt-get install -y \
+		dbus \
+		dnsmasq \
+		hostapd \
+		rfkill \
+	&& rm -rf /var/lib/apt/lists/*
+
+COPY hostapd.conf /etc/hostapd/hostapd.conf
+COPY dnsmasq.conf /etc/dnsmasq.conf
+COPY interfaces /etc/network/interfaces
+COPY start.sh ./start.sh
+
+RUN echo Setting up Wi-Fi...
+CMD ["bash", "start.sh"]

@@ -1,9 +1,18 @@
+
+
+
+
 version: '2'
 volumes:
     sense-data:
     nodered-data:
     grafana-data:
 services:
+  accesspoint:
+    restart: always
+    build: ./ap
+    network_mode: host
+    privileged: true
   nodered:
     restart: always
     build: ./nodered
@@ -32,9 +41,6 @@ services:
     build: ./mosquitto
     ports:
       - "1883:1883"
-#  bridge:
-#    restart: always
-#    build: ./bridge
-#    depends_on:
-#     - influxdb
-#     - mosquitto
+    labels:
+      io.balena.features.supervisor-api: '1'
+
