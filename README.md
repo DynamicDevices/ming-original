@@ -42,9 +42,9 @@ It's that easy!
 
 # Maintainer / Contributors
 
-Alex J Lennon - @embedded_iot
-Julian Todd - @goatchurch
-Matthew Croughan - @matthewcroughan
+- Alex J Lennon (@embedded_iot)
+- Julian Todd (@goatchurch)
+- Matthew Croughan (@matthewcroughan)
 
 # Contributing
 
