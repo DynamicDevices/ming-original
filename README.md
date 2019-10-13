@@ -66,7 +66,13 @@ If you run into problems just try pinging to the local IP address you see on the
 With connectivity working you can now take a look at the servers running on the target.
 
 - NodeRed http://e844144.local:1880
+
+![](https://i.ibb.co/pPMRkgS/Screenshot-from-2019-10-13-19-00-18.png)
+
 - Grafana http://e844144.local:80 (default password: admin, admin)
+
+![](https://i.ibb.co/rZ8C1qD/Screenshot-from-2019-10-13-19-00-54.png)
+
 - You can also publish to Mosquitto using MQtt on the default port 1883
 
 # Maintainer / Contributors
