@@ -51,7 +51,7 @@ You can see the individual containers running, the unique ID (UID) of the newly 
 and it's local IP address. You can also enable a public URL to access the device remotely. By default
 if you enable access to port 80 you'll enable access to the Grafana server.
 
-[[https://i.ibb.co/jvxDcNr/Screenshot-from-2019-10-13-18-46-32.png]]
+![](https://i.ibb.co/jvxDcNr/Screenshot-from-2019-10-13-18-46-32.png)
 
 You can see from the above that the short form of the UID for this device is e844144.
 
@@ -66,7 +66,13 @@ If you run into problems just try pinging to the local IP address you see on the
 With connectivity working you can now take a look at the servers running on the target.
 
 - NodeRed http://e844144.local:1880
+
+![](https://i.ibb.co/pPMRkgS/Screenshot-from-2019-10-13-19-00-18.png)
+
 - Grafana http://e844144.local:80 (default password: admin, admin)
+
+![](https://i.ibb.co/rZ8C1qD/Screenshot-from-2019-10-13-19-00-54.png)
+
 - You can also publish to Mosquitto using MQtt on the default port 1883
 
 # Maintainer / Contributors
