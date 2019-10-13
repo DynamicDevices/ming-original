@@ -51,7 +51,7 @@ You can see the individual containers running, the unique ID (UID) of the newly 
 and it's local IP address. You can also enable a public URL to access the device remotely. By default
 if you enable access to port 80 you'll enable access to the Grafana server.
 
-[](https://i.ibb.co/jvxDcNr/Screenshot-from-2019-10-13-18-46-32.png)
+![](https://i.ibb.co/jvxDcNr/Screenshot-from-2019-10-13-18-46-32.png)
 
 You can see from the above that the short form of the UID for this device is e844144.
 
