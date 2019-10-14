@@ -81,6 +81,12 @@ With connectivity working you can now take a look at the servers running on the 
 - Julian Todd (@goatchurch)
 - Matthew Croughan (@matthewcroughan)
 
+# Attribution
+
+- This is in part based on excellent work done by the Balena.io team
+
+@see: https://github.com/balena-io-projects/balena-sense
+
 # Contributing
 
 Please raise issues and generate PRs at
