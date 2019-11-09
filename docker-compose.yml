@@ -6,21 +6,26 @@ volumes:
 services:
   nodered:
     restart: always
-    build: ./nodered
+    image: nodered/node-red
     volumes:
       - 'nodered-data:/data'
     ports:
       - "1880:1880"
   influxdb:
     restart: always
-    build: ./influxdb
+    image: influxdb:latest
     volumes:
       - 'sense-data:/data'
     ports:
       - "8086:8086"
   grafana:
     restart: always
-    build: ./grafana
+    image: grafana/grafana:master
+    environment:
+#      - GF_PATHS_DATA=/data/
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+      - GF_AUTH_ANONYMOUS_ORG_NAME=DoES
+      - GF_AUTH_ANONYMOUS_ORG_ROLE=Viewer
     ports:
       - "80:3000"
     volumes:
@@ -29,7 +34,7 @@ services:
       - influxdb
   mosquitto:
     restart: always
-    build: ./mosquitto
+    image: eclipse-mosquitto:latest
     ports:
       - "1883:1883"
 #  bridge:
