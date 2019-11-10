@@ -1,6 +1,6 @@
 version: '2'
 volumes:
-    sense-data:
+    influxdb-data:
     nodered-data:
     grafana-data:
 services:
@@ -17,7 +17,7 @@ services:
     environment:
       - INFLUXDB_DB=ming_default
     volumes:
-      - 'sense-data:/data'
+      - 'influxdb-data:/data'
     ports:
       - "8086:8086"
   grafana:
