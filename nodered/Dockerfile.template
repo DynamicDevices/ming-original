@@ -1,1 +1,1 @@
-FROM --platform=linux/arm nodered/node-red:latest
+FROM --platform=linux/arm nodered/node-red:1.0.2
