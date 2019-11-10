@@ -6,25 +6,25 @@ volumes:
 services:
   nodered:
     restart: always
-    image: nodered/node-red
+    build: ./nodered
     volumes:
       - 'nodered-data:/data'
     ports:
       - "1880:1880"
   influxdb:
     restart: always
-    image: influxdb:latest
+    build: ./influxdb
+    environment:
+      - INFLUXDB_DB=ming_default
     volumes:
       - 'sense-data:/data'
     ports:
       - "8086:8086"
   grafana:
     restart: always
-    image: grafana/grafana:master
+    build: ./grafana
     environment:
-#      - GF_PATHS_DATA=/data/
       - GF_AUTH_ANONYMOUS_ENABLED=true
-      - GF_AUTH_ANONYMOUS_ORG_NAME=DoES
       - GF_AUTH_ANONYMOUS_ORG_ROLE=Viewer
     ports:
       - "80:3000"
@@ -34,7 +34,7 @@ services:
       - influxdb
   mosquitto:
     restart: always
-    image: eclipse-mosquitto:latest
+    build: ./mosquitto
     ports:
       - "1883:1883"
 #  bridge:
