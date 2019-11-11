@@ -3,6 +3,7 @@ volumes:
     influxdb-data:
     nodered-data:
     grafana-data:
+    jupyterlab-data:
 services:
   nodered:
     restart: always
@@ -37,6 +38,14 @@ services:
     build: ./mosquitto
     ports:
       - "1883:1883"
+  jupyterlab:
+    restart: always
+    build: ./jupyterlab
+    ports:
+      - "8888:8888"
+    volumes:
+      - 'jupyterlab-data:/data'
+
 #  bridge:
 #    restart: always
 #    build: ./bridge
