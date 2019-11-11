@@ -1,6 +1,6 @@
 version: '2'
 volumes:
-    sense-data:
+    influxdb-data:
     nodered-data:
     grafana-data:
 services:
@@ -14,13 +14,18 @@ services:
   influxdb:
     restart: always
     build: ./influxdb
+    environment:
+      - INFLUXDB_DB=ming_default
     volumes:
-      - 'sense-data:/data'
+      - 'influxdb-data:/data'
     ports:
       - "8086:8086"
   grafana:
     restart: always
     build: ./grafana
+    environment:
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+      - GF_AUTH_ANONYMOUS_ORG_ROLE=Viewer
     ports:
       - "80:3000"
     volumes:

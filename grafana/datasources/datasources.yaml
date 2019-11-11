@@ -1,0 +1,13 @@
+apiVersion: 1
+
+datasources:
+  - name: influxdb
+    type: influxdb
+    access: proxy
+    database: $MING_INFLUX_DATABASE
+    user: admin
+    url: http://influxdb:8086
+    jsonData:
+      timeInterval: "15s"
+    secureJsonData:
+      password:

@@ -1,11 +1,1 @@
-FROM balenalib/%%BALENA_MACHINE_NAME%%-alpine-node
-
-RUN apk --no-cache add nodejs nodejs-npm git
-
-RUN npm install -g node-red node-red-dashboard
-RUN git clone https://github.com/mblackstock/node-red-contrib-influxdb.git
-RUN cd node-red-contrib-influxdb && npm install -g
-
-ENV PATH /usr/sbin:$PATH
-
-CMD ["/usr/local/bin/node-red", "--userDir", "/data"]
+FROM --platform=linux/arm nodered/node-red:1.0.2

@@ -1,7 +1,1 @@
-FROM balenalib/%%BALENA_MACHINE_NAME%%-alpine
-
-RUN apk --no-cache add mosquitto mosquitto-clients
-
-ENV PATH /usr/sbin:$PATH
-
-ENTRYPOINT ["/usr/sbin/mosquitto"]
+FROM --platform=linux/arm eclipse-mosquitto:1.6.7
