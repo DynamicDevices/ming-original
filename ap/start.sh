@@ -13,4 +13,5 @@ if [[ "$MING_AP" == 1 ]]; then
 elif [[ "$MING_AP" == 0 ]]
 then
   echo "Wifi AP has not been enabled in service variables"
+  sleep infinity &
 fi
