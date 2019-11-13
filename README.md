@@ -47,6 +47,8 @@ It's that easy!
 Variable Name | Value | Description | Default
 ------------ | ------------- | ------------- | -------------
 **`JUPYTER_MING_PASS`** | `STRING` | the password Jupyter Labs will start up with | mingstack
+**`MING_AP`** | `1` OR `0` | Whether to start a Wifi AP or not, 0 = off, 1 = on  | 0
+
 
 # More detail
 
