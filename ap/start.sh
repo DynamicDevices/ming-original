@@ -12,7 +12,7 @@ if [[ "$MING_AP" == 1 ]]; then
 else
 while true
 do
-  echo "Wifi AP has not been enabled in service variables set WIFI_AP=1 to enable"
+  echo "Wifi AP has not been enabled in service variables set MING_AP=1 to enable"
   sleep 120
 done 
 fi
