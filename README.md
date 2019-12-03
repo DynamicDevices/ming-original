@@ -43,6 +43,11 @@ Balena.io will build and deploy the containers to your target.
 
 It's that easy!
 
+## Configure via [environment variables](https://docs.resin.io/management/env-vars/)
+Variable Name | Value | Description | Default
+------------ | ------------- | ------------- | -------------
+**`JUPYTER_MING_PASS`** | `STRING` | the password Jupyter Labs will start up with | mingstack
+
 # More detail
 
 Here's an example of what you will see on the Balena dashboard.
