@@ -4,7 +4,7 @@ datasources:
   - name: influxdb
     type: influxdb
     access: proxy
-    database: $MING_INFLUX_DATABASE
+    database: ming_default
     user: admin
     url: http://influxdb:8086
     jsonData:
