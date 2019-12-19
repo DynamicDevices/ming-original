@@ -1,3 +1,3 @@
-FROM grafana/grafana:6.4.4
+FROM grafana/grafana:master
 
 COPY ./datasources/datasources.yaml /etc/grafana/provisioning/datasources/datasources.yaml
