@@ -49,6 +49,10 @@ Variable Name | Value | Description | Default
 **`JUPYTER_MING_PASS`** | `STRING` | the password Jupyter Labs will start up with | mingstack
 **`MING_AP`** | `1` OR `0` | Whether to start a Wifi AP or not, 0 = off, 1 = on  | 0
 
+# AP Mode
+
+When using Balena, in order to run an AP on a device such as a Pi3, simply uncomment the docker-compose SERVICE labelled "ap" and set `MING_AP` in your Balena device or service variables to equal `1`.
+
 
 # More detail
 
