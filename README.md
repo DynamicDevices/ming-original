@@ -27,7 +27,13 @@ Currently tested targets are
 
 Example command: Note the host to guest port forwarding
 
-```sudo qemu-system-x86_64 -drive file=balena-cloud-IntelNucTest-qemux86-64-2.38.0+rev1-dev-v9.15.7.img,media=disk,cache=none,format=raw -net nic,model=virtio -net user,hostfwd=tcp::5880-:1880,hostfwd=tcp::5000-:3000,hostfwd=tcp::5883-:1883 -m 1024 -nographic -machine type=pc,accel=kvm -smp 4 -cpu host```
+```sudo qemu-system-x86_64 -drive file=balena-cloud-IntelNucTest-qemux86-64-2.38.0+rev1-dev-v9.15.7.img,media=disk,cache=none,format=raw -net nic,model=virtio -net user,hostfwd=tcp::5880-:1880,hostfwd=tcp::5000-:3000,hostfwd=tcp::5883-:1883,hostfwd=tcp::5884-:1884 -m 1024 -nographic -machine type=pc,accel=kvm -smp 4 -cpu host```
+
+You may need to increase the size of the qemu image download you get from Balena.io:
+
+```qemu-img resize balena-cloud-IntelNucTest-qemux86-64-2.38.0+rev1-dev-v9.15.7.img -f raw +10G```
+
+This will be picked up when the image boots and the partition/filesystem resized accordingly
 
 - Raspberry Pi 3 B+
 
