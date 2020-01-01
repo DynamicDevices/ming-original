@@ -1,1 +1,1 @@
-FROM --platform=linux/arm influxdb:1.7.8
+FROM --platform=linux/%%BALENA_ARCH%% influxdb:1.7.8

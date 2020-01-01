@@ -1,1 +1,1 @@
-FROM --platform=linux/arm nodered/node-red:1.0.2
+FROM --platform=linux/%%BALENA_ARCH%% nodered/node-red:1.0.2
