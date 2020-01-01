@@ -38,6 +38,7 @@ services:
     build: ./mosquitto
     ports:
       - "1883:1883"
+      - "1884:1884"
   jupyterlab:
     restart: always
     build: ./jupyterlab
