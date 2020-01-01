@@ -23,7 +23,11 @@ embedded Linux target supporting Balena.io (Docker for Embedded Systems).
 
 Currently tested targets are
 
-- Intel NUC (which can be used for testing in a VirtualBox VM)
+- Intel NUC (which can be used for testing with QEMUx86_64)
+
+Example command: Note the host to guest port forwarding
+
+```sudo qemu-system-x86_64 -drive file=balena-cloud-IntelNucTest-qemux86-64-2.38.0+rev1-dev-v9.15.7.img,media=disk,cache=none,format=raw -net nic,model=virtio -net user,hostfwd=tcp::5880-:1880,hostfwd=tcp::5000-:3000,hostfwd=tcp::5883-:1883 -m 1024 -nographic -machine type=pc,accel=kvm -smp 4 -cpu host```
 
 - Raspberry Pi 3 B+
 
