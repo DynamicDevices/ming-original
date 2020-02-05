@@ -1,0 +1,1 @@
+FROM --platform=linux/arm influxdb:1.7.8
