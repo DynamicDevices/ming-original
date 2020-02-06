@@ -15,6 +15,7 @@ RUN apt-get update && apt-get install -y \
     python3-tornado python3-wheel\
     build-essential \
     tini \
+    sudo \
 && rm -rf /var/lib/apt/lists/*
 
 COPY start.sh /usr/src/app/jupyter/start.sh
@@ -32,6 +33,8 @@ RUN mkdir /data
 RUN useradd -Ms /bin/bash -d /usr/src/app/jupyter jupyter \
     && chown -R jupyter:jupyter /data \
     && chown -R jupyter:jupyter /usr/src/app/jupyter
+
+RUN echo "jupyter     ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
 USER jupyter
 
