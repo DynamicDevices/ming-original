@@ -1,0 +1,1 @@
+FROM --platform=linux/arm homeassistant/home-assistant:0.110.3
