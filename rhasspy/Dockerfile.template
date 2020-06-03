@@ -1,0 +1,1 @@
+FROM --platform=linux/%%BALENA_ARCH%% synesthesiam/rhasspy-server:latest
