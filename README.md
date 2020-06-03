@@ -19,6 +19,49 @@ We've leveraged #OpenBalena to provide a embedded Linux environment to provide:
 Each of these applications is built and runs in its own container on an
 embedded Linux target supporting Balena.io (Docker for Embedded Systems).
 
+# Optional Components
+
+We've added some nice applications that we think run nicely alongside the MING stack, they can be optionally enabled by uncommenting them in the [`docker-compose.yml`](docker-compose.yml) file in this repo
+
+These components are:
+
+## [Home-Assistant](https://www.home-assistant.io/)
+
+Open source home automation that puts local control and privacy first.
+
+## [Rhasspy](https://rhasspy.readthedocs.io/en/latest/)
+
+Rhasspy (pronounced RAH-SPEE) is an open source, fully offline voice assistant toolkit for many languages that works well with Home Assistant, Hass.io, and Node-RED.
+
+## [Wifi-Connect](https://github.com/balena-io/wifi-connect) (AP Mode)
+
+This is only available When using Balena. It allows you to a Wifi Access Point on a device with AP capable hardware such as a Raspberry Pi 3, simply uncomment the docker-compose SERVICE labelled "ap" and set `MING_AP` to a value of `1` in your [Balena device variables or service variables](#configure-via-environment-variables).
+
+## Enabling these optional components
+
+To enable [Home-Assistant](https://www.home-assistant.io/) for example, uncomment it in [`docker-compose.yml`](docker-compose.yml)
+
+Enabled ✔
+```
+  hassio:
+    restart: always
+    build: ./hassio
+    ports:
+      - "8123:8123" 
+    volumes:
+      - 'hassio-data:/config'
+```
+Disabled ✖
+```
+#  hassio:
+#    restart: always
+#    build: ./hassio
+#    ports:
+#      - "8123:8123" 
+#    volumes:
+#      - 'hassio-data:/config'
+```
+
 # Supported Targets
 
 Currently tested targets are
@@ -58,11 +101,6 @@ Variable Name | Value | Description | Default
 ------------ | ------------- | ------------- | -------------
 **`JUPYTER_MING_PASS`** | `STRING` | the password Jupyter Labs will start up with | mingstack
 **`MING_AP`** | `1` OR `0` | Whether to start a Wifi AP or not, 0 = off, 1 = on  | 0
-
-# AP Mode
-
-When using Balena, in order to run an AP on a device such as a Pi3, simply uncomment the docker-compose SERVICE labelled "ap" and set `MING_AP` in your Balena device or service variables to equal `1`.
-
 
 # More detail
 
@@ -113,5 +151,3 @@ With connectivity working you can now take a look at the servers running on the 
 Please raise issues and generate PRs at
 
 https://github.com/DynamicDevices/ming
-
-
