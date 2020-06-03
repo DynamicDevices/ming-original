@@ -1,0 +1,1 @@
+FROM --platform=linux/%%BALENA_ARCH%% homeassistant/home-assistant:0.110.3

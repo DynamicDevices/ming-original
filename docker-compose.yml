@@ -4,6 +4,7 @@ volumes:
     nodered-data:
     grafana-data:
     jupyterlab-data:
+    homeassistant-data:
 services:
   nodered:
     restart: always
@@ -46,6 +47,13 @@ services:
       - "8888:8888"
     volumes:
       - 'jupyterlab-data:/data'
+#  homeassistant:
+#    restart: always
+#    build: ./homeassistant
+#    ports:
+#      - "8123:8123" 
+#    volumes:
+#      - 'homeassistant-data:/config'
 #  ap:
 #    build: ./ap
 #    restart: always
