@@ -1,0 +1,1 @@
+FROM --platform=linux/arm synesthesiam/rhasspy-server:latest

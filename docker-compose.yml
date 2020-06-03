@@ -5,6 +5,7 @@ volumes:
     grafana-data:
     jupyterlab-data:
     homeassistant-data:
+    rhasspy-data:
 services:
   nodered:
     restart: always
@@ -54,6 +55,16 @@ services:
 #      - "8123:8123" 
 #    volumes:
 #      - 'homeassistant-data:/config'
+#  rhasspy:
+#    restart: always
+#    build: ./rhasspy
+#    ports:
+#      - "12101:12101"
+#    volumes:
+#      - 'rhasspy-data:/profiles'
+#    devices:
+#      - "/dev/snd:/dev/snd"
+#    command: --user-profiles /profiles --profile en
 #  ap:
 #    build: ./ap
 #    restart: always
