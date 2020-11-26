@@ -32,7 +32,7 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - 'grafana-data:/data'
+      - 'grafana-data:/var/lib/grafana'
     depends_on:
       - influxdb
   mosquitto:
